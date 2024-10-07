@@ -1,0 +1,14 @@
+{
+    "build": {
+      "env": {
+        "RAILWAY_ENV": "production"
+      },
+      "commands": [
+        "cd client && npm install && npm run build"
+      ]
+    },
+    "start": {
+      "command": "cd server && python server.py"
+    }
+  }
+  
