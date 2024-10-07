@@ -48,7 +48,7 @@ function App() {
   const fetchListings = async () => {
     try {
       console.log("Fetching listings...");
-      const response = await fetch("https://hackathon-bu-deploy-4.onrender.com/");
+      const response = await fetch("https://hackathon-bu-deploy-4.onrender.com/listings");
       const listingsData = await response.json();
       console.log("Fetched listings:", listingsData);
       setListings(listingsData);

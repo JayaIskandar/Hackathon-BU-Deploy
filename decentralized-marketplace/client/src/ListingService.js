@@ -9,6 +9,7 @@ export const fetchListings = async () => {
             throw new Error("Failed to fetch listings");
         }
         const data = await response.json();
+        console.log("Fetched listings:", data); // Log the response
         return data.uids; // Assuming you just want the UIDs for now
     } catch (error) {
         console.error(error);
