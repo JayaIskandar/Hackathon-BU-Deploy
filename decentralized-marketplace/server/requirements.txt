@@ -3,3 +3,4 @@ Flask-RESTful
 pymongo
 tronpy
 web3
+flask_cors
