@@ -1,6 +1,6 @@
 // src/ListingService.js
 
-const BASE_URL = "http://127.0.0.1:5000"; // Update if your Flask app is running on a different URL
+const BASE_URL = "https://hackathon-bu-deploy-4.onrender.com"; // Deployed backend URL
 
 export const fetchListings = async () => {
     try {
