@@ -48,7 +48,7 @@ function App() {
   const fetchListings = async () => {
     try {
       console.log("Fetching listings...");
-      const response = await fetch("http://127.0.0.1:5000/listings");
+      const response = await fetch("https://hackathon-bu-deploy-4.onrender.com/");
       const listingsData = await response.json();
       console.log("Fetched listings:", listingsData);
       setListings(listingsData);
