@@ -29,6 +29,11 @@ try:
 except Exception as e:
     print("ERROR CONNECTING TO DB")
     print(e)
+    
+
+@app.route('/')  # Root endpoint
+def home():
+    return jsonify({"message": "Welcome to the Swap Squad API!"}), 200
 
 @app.route('/listing/<int:uid>', methods=['GET', 'POST'])
 def get_listing(uid):
