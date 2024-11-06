@@ -20,17 +20,18 @@ contract Marketplace {
     
 
     Listing[] public listings;
+    ITRC20 immutable token;
     
     mapping(uint256 => uint256) uidToArray;
     
     error NotEnoughMoney();
     error TransactionFailed();
+    error AmountDoesNotEqualPrice();
     
     event NewListing(uint uid);
     
-    address immutable tokenUSDD;
     constructor(address _token) {
-        tokenUSDD = _token;
+        token = ITRC20(_token);
     }
     
     //TG1kuPqiq24MrmFYfq2kWcLMZRPKQ6ZVY2
@@ -52,13 +53,12 @@ contract Marketplace {
         // Ensure the listing is not already bought
         require(!listing.bought, "Listing already bought");
 
-        // Ensure the buyer is sending enough tokens
-        if (amount < listing.price) {
-            revert NotEnoughMoney();
+        //Ensure price ewqueals amount
+        if(amount != listings[uidToArray[uid]].price){
+            revert AmountDoesNotEqualPrice();
         }
-
-        // Check that the buyer has approved the contract to spend the tokens
-        ITRC20 token = ITRC20(tokenUSDD);
+        
+        // Check that the buyer has enough tokens
         if (token.balance(msg.sender) > amount) {
             revert NotEnoughMoney();
         }
